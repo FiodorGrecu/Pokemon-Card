@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Pokemon Lookup Page (App?)</title>
+    <style type="text/css">
+    
+        /* Enter CSS styling here */
+
+    </style> 
+</head>
+<body>
+    <h1>
+        Pokemon Finder
+    </h1>
+    <div>Enter the Name or Id of the Pokemon: <input id="pokemon"/></div>
+    <div><button onClick="getPokemon()" id="pokemonButton">Find Pokemon</button>
+    </div>
+   <div id="outputPoke"></div>
+    <!-- Create a web page that will render a pokemon off
+      the free Pokemon api (pokeapi.co). It should show name,
+      image, and number (id) to the user, and you should be able
+      to search by name or by number. Searching for a new Pokemon
+      should update the data, not append new data to the page.
+    -->
+    <!-- Enter HTML code here -->
+
+<script>
+
+    // Enter JS code here
+
+    async function getPokemon() {
+      var pokeInput = document.getElementById("pokemon").value;
+      var pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
+      const pokemon = await fetch(pokeURL);
+      console.log(pokemon.status);
+      if (pokemon.status != 200){
+        const outputDiv = document.getElementById("outputPoke");
+        outputDiv.innerText = "I'm sorry I could not find your Pokemon!";
+      }
+      else {
+        const pokeData = await pokemon.json();
+        console.log(pokeData);
+        const outputDiv = document.getElementById("outputPoke");
+        outputDiv.innerHTML = `<div>Your Pokemon name is: ${pokeData.name}</div>`
+        outputDiv.innerHTML += `<div>Your Pokemon Id is: ${pokeData.id}</div>`
+        outputDiv.innerHTML += `<img src=${pokeData.sprites.front_default}>`
+      };
+    }
+
+</script>  
+</body>
+</html>
