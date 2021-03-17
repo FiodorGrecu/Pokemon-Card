@@ -30,12 +30,12 @@
     </h1>
     <!-- <input type="text" id="pokemon" placeholder="Search by ID or name"/> -->
     <div style="text-align:center; 
-                padding:100px;
+                padding:30px;
                 color:cornsilk;
                 font-family:Verdana, Geneva, Tahoma, sans-serif">
-          Enter the Name or Id of the Pokemon:
+          <div style="padding-bottom:5px;">Enter the Name or Id of the Pokemon:</div>
       <br/>
-       <input style="text-align:center; width: 200px; height: 100px;" id="pokemon"/>
+       <input style="text-align:center; border-radius: 5px;" id="pokemon"/>
     </div>
     <div style="text-align:center;">
       <button onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
@@ -63,10 +63,11 @@
                                             font-family:Ranchers; 
                                             font-weight: 900;
                                             text-transform: capitalize ">
-                   <div style="color:red"> Your Pokemon name is: ${pokeData.name}</div> </div>`
+                              <div style="color:green"> Your Pokemon name is: ${pokeData.name}</div> </div>`
         outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id is: ${pokeData.id}</div>`
-        outputDiv.innerHTML += `<img style="align-item:center;  margin-left: auto;
-                                            margin-right: auto;" src=${pokeData.sprites.other.dream_world.front_default}>`
+        outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id</div>`
+        outputDiv.innerHTML += `<img style="align-item:center; ;
+                                            padding-left:600px" src=${pokeData.sprites.other.dream_world.front_default}>`
       };
     }
 
