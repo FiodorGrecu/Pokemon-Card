@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <meta charset=utf-8 />
+    <title>Pokemon Lookup Page</title>
+    <style  type="text/css">
+
+        /* Enter CSS styling here */
+        
+
+        img {
+          width: 375px;
+          height:375px;
+        }
+    
+    </style> 
+</head>
+<body style="background-color:rgb(54, 117, 233)">
+
+    <!-- Create a web page that will render a pokemon off
+      the free Pokemon api (pokeapi.com). It should show name,
+      image, and number (id) to the user, and you should be able
+      to search by name or by number. Searching for a new Pokemon
+      should update the data, not append new data to the page.
+    -->
+    <!-- Enter HTML code here -->
+   
+    <h1 style="text-align:center; color:red;  ">
+      Find Pokemon
+    </h1>
+    <!-- <input type="text" id="pokemon" placeholder="Search by ID or name"/> -->
+    <div style="text-align:center; 
+                padding:30px;
+                color:cornsilk;
+                font-family:Verdana, Geneva, Tahoma, sans-serif">
+          <div style="padding-bottom:5px;">Enter the Name or Id of the Pokemon:</div>
+      <br/>
+       <input style="text-align:center; border-radius: 5px;" id="pokemon"/>
+    </div>
+    <div style="text-align:center;">
+      <button onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
+    </div>
+    <div id="outputPoke"></div>
+<script>
+
+    // Enter JS code here
+
+    async function getPokemon() {
+      var pokeInput = document.getElementById("pokemon").value;
+      var pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
+      const pokemon = await fetch(pokeURL);
+      console.log(pokemon.status);
+      if (pokemon.status != 200){
+        const outputDiv = document.getElementById("outputPoke");
+        outputDiv.innerText = "Sorry I couldn't find your Pokemon!";
+      }
+      else {
+        const pokeData = await pokemon.json();
+        console.log(pokeData);
+        const outputDiv = document.getElementById("outputPoke");
+        outputDiv.innerHTML = `<div style="text-align:center; 
+                                            color:white; 
+                                            font-family:Ranchers; 
+                                            font-weight: 900;
+                                            text-transform: capitalize ">
+                   <div style="color:red"> Your Pokemon name is: ${pokeData.name}</div> </div>`
+        outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id is: ${pokeData.id}</div>`
+        outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id</div>`
+        outputDiv.innerHTML += `<img style="align-item:center; ;
+                                            padding-left:600px" src=${pokeData.sprites.other.dream_world.front_default}>`
+      };
+    }
+
+</script>  
+</body>
+</html> 
