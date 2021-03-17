@@ -15,7 +15,7 @@
     
     </style> 
 </head>
-<body style="background-color:rgb(68, 209, 174)">
+<body style="background-color:rgb(54, 117, 233)">
 
     <!-- Create a web page that will render a pokemon off
       the free Pokemon api (pokeapi.com). It should show name,
@@ -35,7 +35,7 @@
                 font-family:Verdana, Geneva, Tahoma, sans-serif">
           Enter the Name or Id of the Pokemon:
       <br/>
-       <input style="text-align:center;" id="pokemon"/>
+       <input style="text-align:center; width: 200px; height: 100px;" id="pokemon"/>
     </div>
     <div style="text-align:center;">
       <button onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
@@ -58,9 +58,15 @@
         const pokeData = await pokemon.json();
         console.log(pokeData);
         const outputDiv = document.getElementById("outputPoke");
-        outputDiv.innerHTML = `<div style="text-align:center;">Your Pokemon name is: ${pokeData.name}</div>`
+        outputDiv.innerHTML = `<div style="text-align:center; 
+                                            color:white; 
+                                            font-family:Ranchers; 
+                                            font-weight: 900;
+                                            text-transform: capitalize ">
+                   <div style="color:red"> Your Pokemon name is: ${pokeData.name}</div> </div>`
         outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id is: ${pokeData.id}</div>`
-        outputDiv.innerHTML += `<img style="text-align:center;" src=${pokeData.sprites.other.dream_world.front_default}>`
+        outputDiv.innerHTML += `<img style="align-item:center;  margin-left: auto;
+                                            margin-right: auto;" src=${pokeData.sprites.other.dream_world.front_default}>`
       };
     }
 
