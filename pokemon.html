@@ -37,8 +37,8 @@
       <br/>
        <input style="text-align:center; border-radius: 5px;" id="pokemon"/>
     </div>
-    <div style="text-align:center;">
-      <button onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
+    <div style="text-align:center; padding-bottom: 24px;">
+      <button style="background-color: grey;" onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
     </div>
     <div id="outputPoke"></div>
 <script>
@@ -46,8 +46,8 @@
     // Enter JS code here
 
     async function getPokemon() {
-      var pokeInput = document.getElementById("pokemon").value;
-      var pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
+      const pokeInput = document.getElementById("pokemon").value;
+      const pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
       const pokemon = await fetch(pokeURL);
       console.log(pokemon.status);
       if (pokemon.status != 200){
@@ -61,12 +61,15 @@
         outputDiv.innerHTML = `<div style="text-align:center; 
                                             color:white; 
                                             font-family:Ranchers; 
+                                            font-size:large;
                                             font-weight: 900;
                                             text-transform: capitalize ">
-                              <div style="color:green"> Your Pokemon name is: ${pokeData.name}</div> </div>`
-        outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id is: ${pokeData.id}</div>`
-        outputDiv.innerHTML += `<div style="text-align:center;">Your Pokemon Id</div>`
-        outputDiv.innerHTML += `<img style="align-item:center; ;
+                            ${pokeData.name}
+                            </div>`
+        outputDiv.innerHTML += `<div style="text-align:center; color:red">Pokemon Id</div>`
+        outputDiv.innerHTML += `<div style="text-align:center; color:grey"> ${pokeData.id}</div>`
+        outputDiv.innerHTML += `<div style="text-align:center; text-size:50px">Your Pokemon Id</div>`
+        outputDiv.innerHTML += `<img style="align-item:center; 
                                             padding-left:500px" src=${pokeData.sprites.other.dream_world.front_default}>`
       };
     }
