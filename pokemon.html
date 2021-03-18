@@ -9,8 +9,8 @@
         
 
         img {
-          width: 375px;
-          height:375px;
+          width: 475px;
+          height:475px;
         }
     
     </style> 
@@ -30,12 +30,13 @@
     </h1>
     <!-- <input type="text" id="pokemon" placeholder="Search by ID or name"/> -->
     <div style="text-align:center; 
-                padding:30px;
+                padding:20px;
                 color:cornsilk;
                 font-family:Verdana, Geneva, Tahoma, sans-serif">
           <div style="padding-bottom:5px;">Enter the Name or Id of the Pokemon:</div>
+          <div style="padding-bottom:5px; color:grey">(Enter a number from 1 to 649)</div>
       <br/>
-       <input style="text-align:center; border-radius: 5px;" id="pokemon"/>
+       <input style="text-align:center; border-radius: 5px;" id="pokemon" placeholder="Pokemon ID"/>
     </div>
     <div style="text-align:center; padding-bottom: 24px;">
       <button style="background-color: grey;" onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
@@ -60,17 +61,16 @@
         const outputDiv = document.getElementById("outputPoke");
         outputDiv.innerHTML = `<div style="text-align:center; 
                                             color:white; 
-                                            font-family:Ranchers; 
-                                            font-size:large;
+                                            font-family:Dancing Script; 
+                                            font-size:60px;
                                             font-weight: 900;
                                             text-transform: capitalize ">
                             ${pokeData.name}
                             </div>`
-        outputDiv.innerHTML += `<div style="text-align:center; color:red">Pokemon Id</div>`
-        outputDiv.innerHTML += `<div style="text-align:center; color:grey"> ${pokeData.id}</div>`
-        outputDiv.innerHTML += `<div style="text-align:center; text-size:50px">Your Pokemon Id</div>`
+        // outputDiv.innerHTML += `<div style="text-align:center; color:white">Pokemon Id</div>`
+        outputDiv.innerHTML += `<div style="text-align:center; color:pink; padding-bottom:40px; font-size:36px;"> ${pokeData.id}</div>`
         outputDiv.innerHTML += `<img style="align-item:center; 
-                                            padding-left:500px" src=${pokeData.sprites.other.dream_world.front_default}>`
+                                  padding-left:450px" src=${pokeData.sprites.other.dream_world.front_default}>`
       };
     }
 
