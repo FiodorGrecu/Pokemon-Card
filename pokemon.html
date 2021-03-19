@@ -5,6 +5,7 @@
     <title>Pokemon Lookup Page</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato&family=Pacifico&family=Redressed&family=Rock+Salt&family=Syne+Mono&display=swap" rel="stylesheet">
+    <!-- https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png -->
     <style  type="text/css">
 
         /* Enter CSS styling here */
@@ -27,9 +28,11 @@
     -->
     <!-- Enter HTML code here -->
    
-    <h1 style="text-align:center; color:red;  ">
-      Find Pokemon
-    </h1>
+    <!-- <span style="padding-left:50px;"> -->
+      <h1 style="text-align:center; color:red;  ">
+        Find Pokemon
+      </h1>
+  <!-- </span> -->
     <!-- <input type="text" id="pokemon" placeholder="Search by ID or name"/> -->
     <div style="text-align:center; 
                 padding:20px;
@@ -58,6 +61,7 @@
       </div>
     </div>
     <div id="outputPoke"></div>
+
 <script>
 
     // Enter JS code here
@@ -65,6 +69,7 @@
 
     async function getPokemon() {
       const pokeInput = document.getElementById("pokemon").value;
+      console.log(pokeInput)
       const pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
       const pokemon = await fetch(pokeURL);
       console.log(pokemon.status);
@@ -101,6 +106,7 @@
                                   " 
                                   src=${pokeData.sprites.other.dream_world.front_default}>
                                 </marquee>`
+                                
                              
       };
     }
