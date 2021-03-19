@@ -35,13 +35,23 @@
                 padding:20px;
                 color:cornsilk;
                 font-family:Verdana, Geneva, Tahoma, sans-serif">
-          <div style="padding-bottom:5px;">Enter the Name or Id of the Pokemon:</div>
-          <div style="padding-bottom:5px; color:grey">(Enter a number from 1 to 649)</div>
+          <div style="padding-bottom:5px;">
+                Enter the Name or Id of the Pokemon:
+          </div>
+          <div style="padding-bottom:5px; color:grey">
+                (Enter a number from 1 to 649)
+          </div>
       <br/>
-       <input style="text-align:center; border-radius: 5px;" id="pokemon" placeholder="Pokemon ID"/>
+       <input style="text-align:center; border-radius: 5px;" 
+              id="pokemon" 
+              placeholder="Pokemon ID"/>
     </div>
     <div style="text-align:center; padding-bottom: 24px;">
-      <button style="background-color: grey;" onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
+      <button style="background-color: grey;" 
+              onclick="getPokemon()" 
+              id="pokemonButton">
+              Get Pokemon
+      </button>
       <div>
         <!-- <button style="background-color: grey;" onclick="getPokemon(+1)"> prev </button>  -->
         <!-- <button style="background-color: grey;" onclick="getPokemon(-1)"> next </button> -->
@@ -51,6 +61,7 @@
 <script>
 
     // Enter JS code here
+
 
     async function getPokemon() {
       const pokeInput = document.getElementById("pokemon").value;
@@ -77,16 +88,19 @@
                             ${pokeData.name}
                             </div>`
         // outputDiv.innerHTML += `<div style="text-align:center; color:white">Pokemon Id</div>`
-        outputDiv.innerHTML += `<div style="text-align:center; color:pink; padding-bottom:40px; font-size:36px;"> ${pokeData.id}</div>`
+        outputDiv.innerHTML += `<div style="text-align:center; 
+                                            color:pink; 
+                                            padding-bottom:40px; 
+                                            font-size:36px;"> 
+                                ${pokeData.id}
+                                </div>`
         outputDiv.innerHTML += `<marquee behavior="slide" direction="up" scrollamount="100">
-
-
-         <img style="align-item:center; 
+                                <img style="align-item:center; 
                                   padding-left:450px; 
                                   animation:slide-slow 3s;
                                   " 
                                   src=${pokeData.sprites.other.dream_world.front_default}>
-                                  </marquee>`
+                                </marquee>`
                              
       };
     }
