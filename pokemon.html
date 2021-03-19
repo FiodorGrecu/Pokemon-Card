@@ -42,6 +42,10 @@
     </div>
     <div style="text-align:center; padding-bottom: 24px;">
       <button style="background-color: grey;" onclick="getPokemon()" id="pokemonButton">Get Pokemon</button>
+      <div>
+        <!-- <button style="background-color: grey;" onclick="getPokemon(+1)"> prev </button>  -->
+        <!-- <button style="background-color: grey;" onclick="getPokemon(-1)"> next </button> -->
+      </div>
     </div>
     <div id="outputPoke"></div>
 <script>
@@ -55,7 +59,10 @@
       console.log(pokemon.status);
       if (pokemon.status != 200){
         const outputDiv = document.getElementById("outputPoke");
-        outputDiv.innerText = "Sorry I couldn't find your Pokemon!";
+        outputDiv.innerHTML = `<div style="text-align:center;
+                                      color:red; ">
+                                Sorry I couldn't find your Pokemon!
+                                </div>`;
       }
       else {
         const pokeData = await pokemon.json();
@@ -71,8 +78,16 @@
                             </div>`
         // outputDiv.innerHTML += `<div style="text-align:center; color:white">Pokemon Id</div>`
         outputDiv.innerHTML += `<div style="text-align:center; color:pink; padding-bottom:40px; font-size:36px;"> ${pokeData.id}</div>`
-        outputDiv.innerHTML += `<img style="align-item:center; 
-                                  padding-left:450px" src=${pokeData.sprites.other.dream_world.front_default}>`
+        outputDiv.innerHTML += `<marquee behavior="slide" direction="up" scrollamount="100">
+
+
+         <img style="align-item:center; 
+                                  padding-left:450px; 
+                                  animation:slide-slow 3s;
+                                  " 
+                                  src=${pokeData.sprites.other.dream_world.front_default}>
+                                  </marquee>`
+                             
       };
     }
 
