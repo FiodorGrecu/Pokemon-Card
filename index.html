@@ -76,7 +76,7 @@
     async function getPokemon() {
       const pokeInput = document.getElementById("pokemon").value;
       console.log(pokeInput)
-      const pokeURL = "http://pokeapi.co/api/v2/pokemon/" + pokeInput;
+      const pokeURL = "https://pokeapi.co/api/v2/pokemon/" + pokeInput;
       const pokemon = await fetch(pokeURL);
       console.log(pokemon.status);
       if (pokemon.status != 200){
